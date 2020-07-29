@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         var list = ArrayList<ListItem>()
 
-
+list.addAll(fillArrays(resources.getStringArray(R.array.fish),
+resources.getStringArray(R.array.fish_content), getImageId(R.array.fish_image_array)
+))
         rc_view.hasFixedSize()
         rc_view.layoutManager = LinearLayoutManager(this)
         adapter = Adapter(list, this)
@@ -45,18 +47,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         return true
     }
-    fun fillArrays(titleArray:Array<String>, contentArray:Array<String>, ):List<ListItem>{
+    fun fillArrays(titleArray:Array<String>, contentArray:Array<String>, imageArray:IntArray):List<ListItem>{
 
+        var listItemArray = ArrayList<ListItem>()
+        for(n in 0..titleArray.size - 1){
+            var listItem = ListItem(imageArray[n], titleArray[n], contentArray[n])
+            listItemArray.add(listItem)
+        }
+        return listItemArray
     }
 
-    fun getImageId(imageArratId:Int){
-        var tArray:TypedArray = resources.obtainTypedArray(imageArratId)
+    fun getImageId(imageArrayId:Int):IntArray
+    {
+        var tArray:TypedArray = resources.obtainTypedArray(imageArrayId)
         val count = tArray.length()
         val ids = IntArray(count)
-        for (i in ids.indices){
-
-            ids[i] = tArray.getResourceId(i, 0)
-
+        for(i in ids.indices)
+        {
+            ids[i] = tArray.getResourceId(i,0 )
         }
         tArray.recycle()
         return ids
