@@ -11,6 +11,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_content.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    var adapter: Adapter? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,12 +21,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         var list = ArrayList<ListItem>()
 
-        list.add(ListItem(R.drawable.som, "Сом", "Я слеп, но вижу что ты аххуел"))
-        list.add(ListItem(R.drawable.nalim, "Налим", "Я глух, но слышу что ты ахуел?"))
-        list.add(ListItem(R.drawable.shuca, "Щука", "Я нем, но я говорю -Ты ахуел!"))
-        list.add(ListItem(R.drawable.caras, "Карась", "А теперь ответь на вопрос кто дважды"))
+
         rc_view.hasFixedSize()
         rc_view.layoutManager = LinearLayoutManager(this)
+        adapter = Adapter(list, this)
         rc_view.adapter = Adapter(list, this)
 
     }
