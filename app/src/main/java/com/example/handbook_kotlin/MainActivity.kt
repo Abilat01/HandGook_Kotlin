@@ -1,5 +1,6 @@
 package com.example.handbook_kotlin
 
+import android.content.res.TypedArray
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -44,4 +45,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         return true
     }
+    fun fillArrays(titleArray:Array<String>, contentArray:Array<String>, ):List<ListItem>{
+
+    }
+
+    fun getImageId(imageArratId:Int){
+        var tArray:TypedArray = resources.obtainTypedArray(imageArratId)
+        val count = tArray.length()
+        val ids = IntArray(count)
+        for (i in ids.indices){
+
+            ids[i] = tArray.getResourceId(i, 0)
+
+        }
+        tArray.recycle()
+        return ids
+    }
+
 }
