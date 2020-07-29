@@ -67,7 +67,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     )
                 )
             }
-            R.id.id_history -> Toast.makeText(this, "Id history", Toast.LENGTH_SHORT).show()
+            R.id.id_history -> {
+                adapter?.updateAdapter(
+                    fillArras(
+                        resources.getStringArray(R.array.history),
+                        resources.getStringArray(R.array.history_content),
+                        getImageId(R.array.history_image_array)
+                    )
+                )
+            }
         }
 
         return true
