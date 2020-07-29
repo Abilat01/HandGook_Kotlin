@@ -12,9 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_content.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
     var adapter: Adapter? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,55 +20,80 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         var list = ArrayList<ListItem>()
 
-list.addAll(fillArrays(resources.getStringArray(R.array.fish),
-resources.getStringArray(R.array.fish_content), getImageId(R.array.fish_image_array)
-))
+        list.addAll(
+            fillArras(
+                resources.getStringArray(R.array.fish),
+                resources.getStringArray(R.array.fish_content), getImageId(R.array.fish_image_array)
+            )
+        )
         rc_view.hasFixedSize()
         rc_view.layoutManager = LinearLayoutManager(this)
         adapter = Adapter(list, this)
-        rc_view.adapter = Adapter(list, this)
+        rc_view.adapter = adapter
+
 
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.id_fish -> {
-                Toast.makeText(this, "тут будет что то про рыб", Toast.LENGTH_SHORT).show()
-                adapter?.updateAdapter(fillArrays(resources.getStringArray(R.array.fish),
-                    resources.getStringArray(R.array.fish_content), getImageId(R.array.fish_image_array)))
-            }
-            R.id.id_na -> Toast.makeText(this, "тут будет что про наживки", Toast.LENGTH_SHORT)
-                .show()
-            R.id.id_sna -> Toast.makeText(this, "тут будет что то про снасти", Toast.LENGTH_SHORT)
-                .show()
-            R.id.id_history -> Toast.makeText(this, "тут будут истории", Toast.LENGTH_SHORT).show()
 
+            R.id.id_fish -> {
+                adapter?.updateAdapter(
+                    fillArras(
+                        resources.getStringArray(R.array.fish),
+                        resources.getStringArray(R.array.fish_content),
+                        getImageId(R.array.fish_image_array)
+                    )
+                )
+
+            }
+            R.id.id_na -> {
+                adapter?.updateAdapter(
+                    fillArras(
+                        resources.getStringArray(R.array.nash),
+                        resources.getStringArray(R.array.nash_content),
+                        getImageId(R.array.nash_image_array)
+                    )
+                )
+
+            }
+            R.id.id_sna -> {
+                adapter?.updateAdapter(
+                    fillArras(
+                        resources.getStringArray(R.array.snasty),
+                        resources.getStringArray(R.array.snasty_content),
+                        getImageId(R.array.snasty_image_array)
+                    )
+                )
+            }
+            R.id.id_history -> Toast.makeText(this, "Id history", Toast.LENGTH_SHORT).show()
         }
 
         return true
     }
-    fun fillArrays(titleArray:Array<String>, contentArray:Array<String>, imageArray:IntArray):List<ListItem>{
 
+    fun fillArras(
+        titleArray: Array<String>,
+        contentArray: Array<String>,
+        imageArray: IntArray
+    ): List<ListItem> {
         var listItemArray = ArrayList<ListItem>()
-        for(n in 0..titleArray.size - 1){
+        for (n in 0..titleArray.size - 1) {
             var listItem = ListItem(imageArray[n], titleArray[n], contentArray[n])
             listItemArray.add(listItem)
         }
         return listItemArray
     }
 
-    fun getImageId(imageArrayId:Int):IntArray
-    {
-        var tArray:TypedArray = resources.obtainTypedArray(imageArrayId)
+    fun getImageId(imageArrayId: Int): IntArray {
+        var tArray: TypedArray = resources.obtainTypedArray(imageArrayId)
         val count = tArray.length()
         val ids = IntArray(count)
-        for(i in ids.indices)
-        {
-            ids[i] = tArray.getResourceId(i,0 )
+        for (i in ids.indices) {
+            ids[i] = tArray.getResourceId(i, 0)
         }
         tArray.recycle()
         return ids
     }
-
 }
