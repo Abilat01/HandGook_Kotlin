@@ -35,8 +35,11 @@ resources.getStringArray(R.array.fish_content), getImageId(R.array.fish_image_ar
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.id_fish -> Toast.makeText(this, "тут будет что то про рыб", Toast.LENGTH_SHORT)
-                .show()
+            R.id.id_fish -> {
+                Toast.makeText(this, "тут будет что то про рыб", Toast.LENGTH_SHORT).show()
+                adapter?.updateAdapter(fillArrays(resources.getStringArray(R.array.fish),
+                    resources.getStringArray(R.array.fish_content), getImageId(R.array.fish_image_array)))
+            }
             R.id.id_na -> Toast.makeText(this, "тут будет что про наживки", Toast.LENGTH_SHORT)
                 .show()
             R.id.id_sna -> Toast.makeText(this, "тут будет что то про снасти", Toast.LENGTH_SHORT)
