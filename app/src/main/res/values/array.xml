@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fish">
+        <item>Сом</item>
+        <item>Налим</item>
+        <item>Щука</item>
+        <item>Карась</item>
+    </string-array>
+    <string-array name="fish_content">
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+    </string-array>
+    <array name="fish_image_array">
+        <item>@drawable/som</item>
+        <item>@drawable/nalim</item>
+        <item>@drawable/shuca</item>
+        <item>@drawable/caras</item>
+    </array>
+
+
+    <string-array name="nash">
+        <item>Червь</item>
+        <item>Мотыль</item>
+        <item>Опарыш</item>
+        <item>Мормыш</item>
+    </string-array>
+    <string-array name="nash_content">
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+    </string-array>
+    <array name="nash_image_array">
+        <item>@drawable/sherv</item>
+        <item>@drawable/motil</item>
+        <item>@drawable/oparish</item>
+        <item>@drawable/mormsh</item>
+
+
+    </array>
+
+
+    <string-array name="snasty">
+        <item>Удочка</item>
+        <item>Спининг</item>
+        <item>Сеть</item>
+        <item>Поплавок</item>
+    </string-array>
+    <string-array name="snasty_content">
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+    </string-array>
+    <array name="snasty_image_array">
+        <item>@drawable/uduchka</item>
+        <item>@drawable/spining</item>
+        <item>@drawable/set</item>
+        <item>@drawable/paplovok</item>
+
+
+    </array>
+
+
+    <string-array name="history">
+        <item>История у реки</item>
+        <item>Рыба в воде</item>
+        <item>Костер в лесу</item>
+        <item>На лодке</item>
+    </string-array>
+    <string-array name="history_content">
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+        <item>Пидр, пидр, пидр, пидр, пошел на хуй!</item>
+    </string-array>
+    <array name="history_image_array">
+        <item>@drawable/palatka</item>
+        <item>@drawable/lovlja</item>
+        <item>@drawable/koster</item>
+        <item>@drawable/lodka</item>
+
+
+    </array>
+
+
+
+
+</resources>
