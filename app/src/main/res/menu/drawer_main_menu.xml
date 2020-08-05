@@ -2,22 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-<group android:checkableBehavior="single">
+    <group android:checkableBehavior="single" />
     <item
-        android:title="@string/fish"
         android:id="@+id/id_fish"
-        android:icon="@drawable/ic_fish" />
+        android:icon="@drawable/fishing"
+        android:title="@string/fish" />
     <item
-        android:title="@string/na"
         android:id="@+id/id_na"
-        android:icon="@drawable/ic_na" />
+        android:icon="@drawable/worm"
+        android:title="@string/na" />
     <item
-        android:title="@string/sna"
         android:id="@+id/id_sna"
-        android:icon="@drawable/ic_sna" />
+        android:icon="@drawable/meat"
+        android:title="@string/sna" />
     <item
-        android:title="@string/history"
         android:id="@+id/id_history"
-        android:icon="@drawable/ic_history" />
-</group>
+        android:icon="@drawable/history"
+        android:title="@string/history" />
+    <item
+        android:id="@+id/id_exit"
+        android:icon="@drawable/logout"
+        android:title="@string/exit" />
+
+
 </menu>

@@ -4,15 +4,15 @@ import android.content.res.TypedArray
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_content.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    var adapter: Adapter? = null
+    var adapter: MyAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 resources.getStringArray(R.array.fish_content), getImageId(R.array.fish_image_array)
             )
         )
-        rc_view.hasFixedSize()
-        rc_view.layoutManager = LinearLayoutManager(this)
-        adapter = Adapter(list, this)
-        rc_view.adapter = adapter
+        rcView.hasFixedSize()
+        rcView.layoutManager = LinearLayoutManager(this)
+        adapter = MyAdapter(list, this)
+        rcView.adapter = adapter
 
 
     }
@@ -51,32 +51,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.id_na -> {
                 adapter?.updateAdapter(
                     fillArras(
-                        resources.getStringArray(R.array.nash),
-                        resources.getStringArray(R.array.nash_content),
-                        getImageId(R.array.nash_image_array)
-                    )
-                )
-
-            }
-            R.id.id_sna -> {
-                adapter?.updateAdapter(
-                    fillArras(
-                        resources.getStringArray(R.array.snasty),
-                        resources.getStringArray(R.array.snasty_content),
-                        getImageId(R.array.snasty_image_array)
+                        resources.getStringArray(R.array.na),
+                        resources.getStringArray(R.array.na_content),
+                        getImageId(R.array.na_image_array)
                     )
                 )
             }
-            R.id.id_history -> {
-                adapter?.updateAdapter(
-                    fillArras(
-                        resources.getStringArray(R.array.history),
-                        resources.getStringArray(R.array.history_content),
-                        getImageId(R.array.history_image_array)
-                    )
-                )
-            }
+            R.id.id_sna -> Toast.makeText(this, "Id sna", Toast.LENGTH_SHORT).show()
+            R.id.id_history -> Toast.makeText(this, "Id history", Toast.LENGTH_SHORT).show()
+            R.id.id_exit -> finish()
         }
+        drawerLayout.closeDrawer(GravityCompat.START)
 
         return true
     }
@@ -104,4 +89,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         tArray.recycle()
         return ids
     }
+
 }

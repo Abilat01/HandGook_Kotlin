@@ -4,4 +4,6 @@
     <string name="na">Наживки</string>
     <string name="sna">Снасти</string>
     <string name="history">Истории</string>
+    <string name="exit">Выход</string>
+    <string name="fisherman">Справочник рыбака</string>
 </resources>
